@@ -1,3 +1,15 @@
 page-contact {
-
+    text-align: center;
+    h4 {
+        padding-top: 50px;
+        padding-bottom:150px;
+        width: 75%;
+        margin: auto;
+    }
+    p {
+        position: fixed;
+        bottom: 50px;
+        width: 200px;
+        margin-left: calc(50% - 100px);
+    }
 }

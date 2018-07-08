@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="til">
+      <ion-title>
+        Settings
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <form (submit)="setDefaults()">
+        <ion-list>
+                <ion-item>
+                    <ion-label fixed>Cap of displayed posts:</ion-label>
+                    <ion-select [(ngModel)]="limit" name="limit">
+                        <ion-option value="10">10</ion-option>
+                        <ion-option value="25">25</ion-option>
+                        <ion-option value="50">50</ion-option>
+                        <ion-option value="100">100</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <button ion-button type="submit" block>Save Settings</button>
+        </form>
+  </ion-content>
+  

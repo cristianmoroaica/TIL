@@ -1,17 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="til">
+    <ion-title>
+       Today I Learned
+    </ion-title>
+    <img alt="logo" src="../../assets/imgs/til.png">
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+    <ion-list style="float: left;">
+        <ion-item>
+            <ion-label fixed>Posts Cap:</ion-label>
+            <ion-select (ionChange)="changeSort()" [(ngModel)]="limit" name="limit">
+                <ion-option value="10">10</ion-option>
+                <ion-option value="25">25</ion-option>
+                <ion-option value="50">50</ion-option>
+                <ion-option value="100">100</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list style="float: right;">
+        <ion-item>
+            <ion-label fixed>Sort by:</ion-label>
+            <ion-select (ionChange)="changeSort()" [(ngModel)]="sortby" name="sortby">
+                <ion-option value="new">New</ion-option>
+                <ion-option value="top">Top</ion-option>
+                <ion-option value="hot">Hot</ion-option>
+                <ion-option value="controversial">Controversial</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let post of posts" text-wrap> 
+        <ion-thumbnail item-end><a href="{{post.data.url}}"><img src='{{post.data.thumbnail || "None"}}' onError="this.onerror=null;this.src='../../assets/imgs/til.png';"></a><button ion-button clear style="text-align: center">View</button></ion-thumbnail>
+        <a href="{{post.data.url}}"><p>{{post.data.title}}</p></a>
+      <ion-icon name="thumbs-up">&nbsp;{{post.data.score}}</ion-icon>
+      <p><a href="{{'https://www.reddit.com'+post.data.permalink}}"><button ion-button clear>Watch on Reddit</button></a></p>
+    </ion-item>
+  </ion-list>
 </ion-content>
