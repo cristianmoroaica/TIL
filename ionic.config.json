@@ -1,0 +1,8 @@
+{
+  "name": "TIL",
+  "app_id": "2050ca53",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
